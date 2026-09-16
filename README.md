@@ -1,4 +1,4 @@
-# kra-etims-sdk
+# kra-etims-oscu-sdk
 
 An **unofficial, community** TypeScript SDK for the Kenya Revenue Authority
 (KRA) eTIMS **OSCU** system-to-system JSON API, with a compatible **VSCU**
@@ -74,7 +74,7 @@ npm i kra-etims-oscu-sdk
 ## Quick start
 
 ```ts
-import { EtimsClient } from "kra-etims-sdk";
+import { EtimsClient } from "kra-etims-oscu-sdk";
 
 const client = new EtimsClient({
   mode: "OSCU",
