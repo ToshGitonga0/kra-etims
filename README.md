@@ -65,8 +65,8 @@ npm i kra-etims-oscu-sdk
 > (`@kra-etims`) must be claimed as an npm organization/user before you can
 > publish under them, and nothing in this scaffold claims that
 > organization for you. This package is set up under the unscoped name
-> `kra-etims-sdk` instead, which is publishable as-is (subject to the name
-> being available at publish time — check with `npm view kra-etims-sdk`
+> `kra-etims-oscu-sdk` instead, which is publishable as-is (subject to the name
+> being available at publish time — check with `npm view kra-etims-oscu-sdk`
 > before your first publish). If you control the `@kra-etims` npm
 > organization, renaming back to a scoped package is a one-line change in
 > `package.json`.
@@ -126,7 +126,7 @@ interface VscuClientConfig {
 ## Sales
 
 ```ts
-import { EtimsClient, roundEtimsAmount, toEtimsDate, toEtimsDateTime } from "kra-etims-sdk";
+import { EtimsClient, roundEtimsAmount, toEtimsDate, toEtimsDateTime } from "kra-etims-oscu-sdk";
 
 const receipt = await client.oscu!.sales.save({
   tin: "A123456789Z",
@@ -186,7 +186,7 @@ package root — see `src/index.ts` or your editor's autocomplete.
 ## Errors
 
 ```ts
-import { EtimsNetworkError, EtimsApiError, EtimsAuthenticationError, EtimsValidationError } from "kra-etims-sdk";
+import { EtimsNetworkError, EtimsApiError, EtimsAuthenticationError, EtimsValidationError } from "kra-etims-oscu-sdk";
 
 try {
   await client.oscu!.sales.save(request);
