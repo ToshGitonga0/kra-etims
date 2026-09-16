@@ -1,11 +1,20 @@
 {
-  "name": "kra-etims-sdk",
+  "name": "kra-etims-oscu-sdk",
   "version": "0.1.0",
   "description": "Unofficial TypeScript SDK for the Kenya Revenue Authority (KRA) eTIMS OSCU system-to-system integration API. Not affiliated with or endorsed by KRA.",
   "type": "module",
   "license": "MIT",
   "author": "",
-  "keywords": ["kra", "etims", "oscu", "vscu", "kenya", "tax", "invoicing", "sdk"],
+  "keywords": [
+    "kra",
+    "etims",
+    "oscu",
+    "vscu",
+    "kenya",
+    "tax",
+    "invoicing",
+    "sdk"
+  ],
   "sideEffects": false,
   "main": "./dist/index.js",
   "module": "./dist/index.js",
@@ -63,6 +72,6 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/REPLACE_ME/kra-etims.git"
+    "url": "git+https://github.com/ToshGitonga0/kra-etims.git"
   }
 }
