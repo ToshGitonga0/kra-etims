@@ -57,7 +57,7 @@ These are two independent settings — see `docs/architecture.md`:
 ## Installation
 
 ```bash
-npm install kra-etims-sdk
+npm i kra-etims-oscu-sdk
 ```
 
 > **Package name note:** the scope `@kra-etims/sdk` requested in some
