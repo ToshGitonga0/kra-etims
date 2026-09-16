@@ -1,0 +1,16 @@
+src/
+tests/
+examples/
+docs/
+scripts/
+.github/
+*.test.ts
+tsconfig.json
+tsup.config.ts
+vitest.config.ts
+.eslintrc.cjs
+.prettierrc.json
+.env
+.env.*
+!.env.example
+*.tsbuildinfo
