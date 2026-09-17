@@ -3,6 +3,13 @@
 All notable changes to this project are documented in this file.
 The format loosely follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
+## [0.1.3] - 2026-09-17
+
+### Fixed
+- Converted README repository file references into clickable Markdown links,
+  including links to `SECURITY.md`, documentation, contributing guidelines,
+  source files, and the license.
+
 ## [0.1.0] - Unreleased
 
 ### Added
