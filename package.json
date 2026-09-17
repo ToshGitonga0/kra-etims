@@ -1,6 +1,6 @@
 {
   "name": "kra-etims-oscu-sdk",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "Unofficial TypeScript SDK for the Kenya Revenue Authority (KRA) eTIMS OSCU system-to-system integration API. Not affiliated with or endorsed by KRA.",
   "type": "module",
   "license": "MIT",
