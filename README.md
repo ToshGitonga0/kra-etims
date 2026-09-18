@@ -13,10 +13,10 @@ README summarizes; that document is the source of truth.
 ## What this SDK is
 
 - A typed client for KRA's real, published OSCU JSON REST API
-  (`OSCU_Specification_Document_v2.0.pdf`, v2.0, April 2023): device
-  initialization, code/customer/notice lookup, item classification & save,
-  branch management, import item reconciliation, sales, purchases, and
-  stock.
+  ([OSCU Specification Document v2.0](https://www.kra.go.ke/images/publications/OSCU_Specification_Document_v2.0.pdf),
+  v2.0, April 2023): device initialization, code/customer/notice lookup,
+  item classification & save, branch management, import item reconciliation,
+  sales, purchases, and stock.
 - A client that can also talk to a **VSCU** instance you already run
   (same JSON contract, taxpayer-hosted), once KRA has approved your VSCU
   service request and you have the runtime running — see [`docs/vscu.md`](https://github.com/ToshGitonga0/kra-etims/blob/main/docs/vscu.md).
