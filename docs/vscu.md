@@ -2,7 +2,7 @@
 
 ## What VSCU actually is
 
-Per KRA's sign-up guide (`OSCU_VSCU_Step-by-Step_Guide-on-how-to-sign-up.pdf`):
+Per KRA's [OSCU/VSCU sign-up guide](https://www.kra.go.ke/images/publications/OSCU_VSCU_Step-by-Step_Guide-on-how-to-sign-up.pdf):
 
 > Virtual Sales Control Unit (VSCU) – Implemented and hosted on the client
 > side. Suitable for organizations with large volumes of invoices that
@@ -16,14 +16,14 @@ You:
 2. Run it with Java 16+ (the guide states this requirement explicitly).
 3. It listens on a local port (**8088 by default**, configurable).
 4. Your own invoicing/ERP system talks to it over HTTP, using the **same
-   JSON request/response contract** documented in the OSCU Specification
-   Document — the guide's own worked example is
+   JSON request/response contract** documented in the [OSCU Specification
+   Document v2.0](https://www.kra.go.ke/images/publications/OSCU_Specification_Document_v2.0.pdf) — the guide's own worked example is
    `http://vscuserverhostname:8088/selectInitOsdcInfo`, i.e. the identical
    endpoint path used by OSCU.
 
 ## What this SDK does
 
-`VscuDomain` (`src/vscu/index.ts`) is a thin subclass of `OscuDomain` that
+[`VscuDomain`](../src/vscu/index.ts) is a thin subclass of `OscuDomain` that
 talks to whatever `baseUrl` you give it in `VscuClientConfig`. Once your VSCU
 JAR is running locally, this SDK can call it exactly like it calls OSCU:
 
@@ -53,10 +53,11 @@ const receipt = await client.vscu!.sales.save(/* ... */);
   is what this SDK implements; the *internal* behavior of the JAR is not
   published and this SDK makes no claims about it.
 - It has not been field-verified for behavioral differences from OSCU beyond
-  hosting location. The dedicated `VSCU_Specification_Document_v2.0.pdf` was
+  hosting location. The dedicated [VSCU Specification
+  Document v2.0](https://www.kra.go.ke/images/publications/VSCU_Specification_Document_v2.0.pdf) was
   not diffed field-by-field against the OSCU spec while building this
-  scaffold — see the "Known gaps" table in
-  `docs/kra-contract-verification.md`. Treat any VSCU-specific field
+  scaffold — see the [Known gaps](kra-contract-verification.md#known-gaps) table in
+  [`docs/kra-contract-verification.md`](kra-contract-verification.md). Treat any VSCU-specific field
   differences as **UNVERIFIED** until someone does that diff and updates
   this file.
 
