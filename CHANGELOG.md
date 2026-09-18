@@ -7,7 +7,7 @@ The format loosely follows [Keep a Changelog](https://keepachangelog.com/en/1.1.
 
 ### Fixed
 - Converted README repository file references into clickable Markdown links,
-  including links to `SECURITY.md`, documentation, contributing guidelines,
+  including links to [`SECURITY.md`](SECURITY.md), documentation, contributing guidelines,
   source files, and the license.
 
 ## [0.1.0] - Unreleased
@@ -21,11 +21,11 @@ The format loosely follows [Keep a Changelog](https://keepachangelog.com/en/1.1.
   initialization, code/notice/customer lookup, item classification/search/save,
   branch search/customer/user/insurance save, import item search/update,
   sales save, purchase-sales search/save, stock move search / stock I-O save /
-  stock master save. See `docs/kra-contract-verification.md` for the full
+  stock master save. See [`docs/kra-contract-verification.md`](docs/kra-contract-verification.md) for the full
   endpoint-by-endpoint verification table.
 - VSCU domain that reuses the verified OSCU JSON contract against a
   taxpayer-supplied host/port, with explicit documentation of what is and is
-  not implemented (see `docs/vscu.md`).
+  not implemented (see [`docs/vscu.md`](docs/vscu.md)).
 - Typed error hierarchy: `EtimsNetworkError`, `EtimsApiError`,
   `EtimsAuthenticationError`, `EtimsValidationError`.
 - Zod-validated request schemas for the two highest-risk fiscal writes
@@ -39,13 +39,14 @@ The format loosely follows [Keep a Changelog](https://keepachangelog.com/en/1.1.
 
 ### Known limitations
 - VSCU's underlying Java runtime is not implemented, embedded, or
-  reimplemented by this package — see `docs/vscu.md`.
+  reimplemented by this package — see [`docs/vscu.md`](docs/vscu.md).
 - `ItemExcute.saveComposition` (item composition / BOM) is not implemented;
   no field-level schema was found in the retrieved specification. See
-  `docs/kra-contract-verification.md`.
+  [`docs/kra-contract-verification.md`](docs/kra-contract-verification.md).
 - No KRA sandbox credentials were available while building this scaffold;
   nothing in this package has been exercised against a live KRA sandbox or
   production server. Every request/response type is sourced from KRA's
   published specification documents, not from live testing. Treat this as
   **spec-verified, sandbox-untested** until you run it against your own
-  sandbox credentials — see the status legend in `docs/kra-contract-verification.md`.
+  sandbox credentials — see the status legend in
+  [`docs/kra-contract-verification.md`](docs/kra-contract-verification.md).
