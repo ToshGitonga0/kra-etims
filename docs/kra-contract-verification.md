@@ -1,8 +1,7 @@
 # KRA eTIMS contract verification
 
 This document records, endpoint by endpoint, what this SDK implements, which
-KRA document each detail comes from, and what remains unverified. It is the
-source of truth for "is this real, or did the SDK invent it?" — if something
+KRA document each detail comes from, and what remains unverified. if something
 in `src/` is not traceable to a row in this document, treat it as a bug and
 open an issue.
 
@@ -11,7 +10,7 @@ open an issue.
 | Status | Meaning |
 |---|---|
 | **Verified** | Field names, types, required/optional flags, and lengths are taken directly from an official KRA PDF. |
-| **Verified, sandbox-untested** | Same as above, but this SDK has not yet been exercised against a live KRA sandbox (no sandbox credentials were available while building this scaffold — see `CHANGELOG.md`). |
+| **Verified, sandbox-untested** | Same as above, but this SDK has not yet been exercised against a live KRA sandbox (no sandbox credentials were available while building this — see `CHANGELOG.md`). |
 | **UNVERIFIED** | KRA's documentation is silent, ambiguous, or internally inconsistent on this point. The SDK either omits the feature or clearly flags the gap in code comments. |
 
 Unless individually noted otherwise below, every implemented OSCU endpoint is
@@ -161,7 +160,7 @@ to its section heading in `OSCU_Specification_Document_v2.0.pdf`.
 | Feature | KRA source | Status | Notes |
 |---|---|---|---|
 | `ItemExcute.saveComposition` (item composition / BOM save) | Named in the §3.2.1 function table (`ItemCompositionSaveReq/Res`) | **UNVERIFIED — not implemented** | The retrieved copy of the specification lists this method in the summary table but does not include a numbered `3.3.x` field-level breakdown for it, unlike every other method. Implementing it would require guessing field names, which this SDK's rules forbid. |
-| VSCU-specific field/behavior differences (if any) beyond base URL/hosting | `VSCU_Specification_Document_v2.0.pdf` | **UNVERIFIED** | This scaffold treats VSCU as "the same JSON contract as OSCU, served from a taxpayer-hosted runtime instead of a KRA-hosted server" based on the sign-up guide's worked example (`http://vscuserverhostname:8088/selectInitOsdcInfo` — same path as OSCU). The dedicated VSCU spec PDF was not fully diffed field-by-field against the OSCU spec for this scaffold. Before relying on VSCU in production, diff the two PDFs directly and update this row. |
+| VSCU-specific field/behavior differences (if any) beyond base URL/hosting | `VSCU_Specification_Document_v2.0.pdf` | **UNVERIFIED** | This repo treats VSCU as "the same JSON contract as OSCU, served from a taxpayer-hosted runtime instead of a KRA-hosted server" based on the sign-up guide's worked example (`http://vscuserverhostname:8088/selectInitOsdcInfo` — same path as OSCU). The dedicated VSCU spec PDF was not fully diffed field-by-field against the OSCU spec for this repo. Before relying on VSCU in production, diff the two PDFs directly and update this row. |
 | Local TIS↔SCU device IPC protocol (`SEND_RECEIPT`, `RECV_RECEIPT`, `SIGNATURE_REQUEST`, `COUNTERS_REQUEST`, `DATE_TIME_REQUEST`, `ID_REQUEST`, `EJ_DATA`, `STATUS`, and the `<PIN><CMD><DATA><STATUS>` message format) | `TIS-for-OSCU--VSCU-Technical-Specifications-v2.0.pdf` §21 | **Out of scope, not implemented** | This is a different protocol (see "Two specifications, two protocols" above), not a gap in the JSON API coverage. |
 | Digital signature / cryptographic verification of `intrlData` / `rcptSign` on the client side | Not described in any retrieved document | **UNVERIFIED — not implemented** | KRA computes and returns these values; the retrieved specification does not describe a client-side algorithm to independently verify or recompute them, nor a signing key the taxpayer holds. The SDK stores/returns them as opaque strings and does not invent a verification algorithm. |
 | Large reference code tables (countries §4.4, packaging units §4.6, quantity units §4.7, currencies §4.8) | `OSCU_Specification_Document_v2.0.pdf` §4 | **Verified but intentionally not hard-coded** | These are large, KRA-maintained lists. The SDK fetches them live via `oscu.codes.search()` rather than embedding a copy that can drift out of date. Only the small, stable enumerations (tax type, transaction type, payment method, etc.) are modeled as TypeScript literal unions in `src/oscu/codes.ts`. |
