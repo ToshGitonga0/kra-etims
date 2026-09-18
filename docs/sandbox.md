@@ -1,14 +1,14 @@
 # Sandbox / onboarding
 
-This describes the process per KRA's published sign-up guide
-(`OSCU_VSCU_Step-by-Step_Guide-on-how-to-sign-up.pdf`). It has not been
+This describes the process per [KRA's published sign-up guide](https://www.kra.go.ke/images/publications/OSCU_VSCU_Step-by-Step_Guide-on-how-to-sign-up.pdf),
+[available from KRA's eTIMS system-to-system integration page](https://www.kra.go.ke/business/etims-electronic-tax-invoice-management-system/learn-about-etims/etims-system-to-system-integration). It has not been
 walked through end-to-end while building this scaffold — treat each step as
 **documented, not personally verified** until you or a contributor confirms
 it and updates this file.
 
 ## 1. Sign up for eTIMS taxpayer sandbox access
 
-Register for access to the eTIMS taxpayer sandbox portal using your KRA PIN
+Register for access to the [eTIMS taxpayer sandbox portal](https://etims-sbx.kra.go.ke/) using your KRA PIN
 and password.
 
 ## 2. Request an OSCU or VSCU service
@@ -24,18 +24,18 @@ Request form**, selecting either:
   API. Suitable for systems that operate online."
 
 You'll also need to complete and upload the eTIMS Commitment Form (linked
-from the same guide) and the eTIMS Bio-Data Form for OSCU and VSCU.
+from the [same guide](https://www.kra.go.ke/images/publications/OSCU_VSCU_Step-by-Step_Guide-on-how-to-sign-up.pdf)) and the eTIMS Bio-Data Form for OSCU and VSCU.
 
 ## 3. Wait for approval and device registration
 
 KRA verifies and approves the device. For OSCU, this activates a
 KRA-hosted endpoint for your PIN/branch. For VSCU, KRA makes a Java package
-available for download on the portal — see `docs/vscu.md`.
+available for download on the portal — see the [VSCU deployment guide](vscu.md).
 
 ## 4. Initialize the device (OSCU)
 
-Once approved, call `oscu.init.initialize(...)` against the **sandbox**
-base URL with your PIN, branch ID, and a device serial number you choose:
+Once approved, call `oscu.init.initialize(...)` against the **sandbox** base URL
+(`https://etims-api-sbx.kra.go.ke/etims-api`) with your PIN, branch ID, and a device serial number you choose:
 
 ```ts
 import { EtimsClient } from "kra-etims-sdk";
@@ -79,14 +79,12 @@ takes `cmcKey` explicitly as part of its request object (matching KRA's
 per-request field), so wire `authedClient`'s stored key into each call
 yourself, e.g. via a small wrapper in your application code. A future
 version of this SDK may thread it through automatically; see
-`CONTRIBUTING.md`.
+[`CONTRIBUTING.md`](../CONTRIBUTING.md).
 
 ## 6. Move to production
 
 Once your integration passes KRA's testing/vetting/certification process
-(per the system-to-system integration page), switch `environment` to
-`"production"` and re-run device initialization against the production base
-URL — sandbox and production communication keys are separate credentials
+(per the [system-to-system integration page](https://www.kra.go.ke/business/etims-electronic-tax-invoice-management-system/learn-about-etims/etims-system-to-system-integration)), switch `environment` to `"production"` and re-run device initialization against the production base URL — sandbox and production communication keys are separate credentials
 tied to separate device registrations.
 
 ## Running the SDK's own integration tests against your sandbox
@@ -97,6 +95,6 @@ cp .env.example .env
 npm run test:integration
 ```
 
-`tests/integration/*` is gated behind `KRA_ETIMS_RUN_INTEGRATION=true` and
+[`tests/integration/*`](../tests/integration/) is gated behind `KRA_ETIMS_RUN_INTEGRATION=true` and
 is never run by plain `npm test`, so CI and casual contributors never make
 real network calls to KRA by accident.
