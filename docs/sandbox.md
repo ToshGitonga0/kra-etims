@@ -2,7 +2,7 @@
 
 This describes the process per [KRA's published sign-up guide](https://www.kra.go.ke/images/publications/OSCU_VSCU_Step-by-Step_Guide-on-how-to-sign-up.pdf),
 [available from KRA's eTIMS system-to-system integration page](https://www.kra.go.ke/business/etims-electronic-tax-invoice-management-system/learn-about-etims/etims-system-to-system-integration). It has not been
-walked through end-to-end while building this scaffold — treat each step as
+walked through end-to-end while building this repo — treat each step as
 **documented, not personally verified** until you or a contributor confirms
 it and updates this file.
 

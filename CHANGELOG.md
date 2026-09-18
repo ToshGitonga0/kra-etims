@@ -3,6 +3,13 @@
 All notable changes to this project are documented in this file.
 The format loosely follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
+## [0.1.4] - 2026-09-18
+
+### Changed
+- Updated README repository references and documentation links.
+- Improved sandbox usage documentation.
+- Expanded and clarified VSCU documentation.
+
 ## [0.1.3] - 2026-09-17
 
 ### Fixed
@@ -13,7 +20,7 @@ The format loosely follows [Keep a Changelog](https://keepachangelog.com/en/1.1.
 ## [0.1.0] - Unreleased
 
 ### Added
-- Initial scaffold: `EtimsClient` with explicit `IntegrationMode` (`OSCU` |
+- Initial repo: `EtimsClient` with explicit `IntegrationMode` (`OSCU` |
   `VSCU`) and `EtimsEnvironment` (`sandbox` | `production`) configuration,
   kept as two independent axes rather than a single "environment" flag.
 - OSCU domain services covering every field-level-specified endpoint in
@@ -43,7 +50,7 @@ The format loosely follows [Keep a Changelog](https://keepachangelog.com/en/1.1.
 - `ItemExcute.saveComposition` (item composition / BOM) is not implemented;
   no field-level schema was found in the retrieved specification. See
   [`docs/kra-contract-verification.md`](docs/kra-contract-verification.md).
-- No KRA sandbox credentials were available while building this scaffold;
+- No KRA sandbox credentials were available while building this repo;
   nothing in this package has been exercised against a live KRA sandbox or
   production server. Every request/response type is sourced from KRA's
   published specification documents, not from live testing. Treat this as

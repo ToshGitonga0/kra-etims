@@ -37,7 +37,7 @@ README summarizes; that document is the source of truth.
   integration through KRA's testing/certification process remains your
   responsibility.
 - **Not** exercised against a live KRA sandbox as part of building this
-  scaffold (no sandbox credentials were available). Every type and
+  repo (no sandbox credentials were available). Every type and
   endpoint is sourced from KRA's own specification PDFs and unit-tested
   against fixtures derived from the spec's own JSON samples — see the
   status legend in [`docs/kra-contract-verification.md`](https://github.com/ToshGitonga0/kra-etims/blob/main/docs/kra-contract-verification.md) for exactly what
@@ -62,7 +62,7 @@ npm i kra-etims-oscu-sdk
 > **Package name note:** the scope `@kra-etims/sdk` requested in some
 > project templates is **not automatically publishable** — npm scopes
 > (`@kra-etims`) must be claimed as an npm organization/user before you can
-> publish under them, and nothing in this scaffold claims that organization
+> publish under them, and nothing in this repo claims that organization
 > for you. This package is set up under the unscoped name
 > `kra-etims-oscu-sdk` instead, which is publishable as-is (subject to the name
 > being available at publish time — check with `npm view kra-etims-oscu-sdk`

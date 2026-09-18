@@ -56,7 +56,7 @@ const receipt = await client.vscu!.sales.save(/* ... */);
   hosting location. The dedicated [VSCU Specification
   Document v2.0](https://www.kra.go.ke/images/publications/VSCU_Specification_Document_v2.0.pdf) was
   not diffed field-by-field against the OSCU spec while building this
-  scaffold — see the [Known gaps](kra-contract-verification.md#known-gaps) table in
+  repo — see the [Known gaps](kra-contract-verification.md#known-gaps) table in
   [`docs/kra-contract-verification.md`](kra-contract-verification.md). Treat any VSCU-specific field
   differences as **UNVERIFIED** until someone does that diff and updates
   this file.
