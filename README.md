@@ -5,10 +5,10 @@ An **unofficial, community** TypeScript SDK for the Kenya Revenue Authority
 client for taxpayer-hosted deployments. Not affiliated with, endorsed by, or
 officially supported by KRA.
 
-> **Read this first:** [`docs/kra-contract-verification.md`](docs/kra-contract-verification.md). It lists, for
-> every endpoint this SDK implements, exactly which KRA document and section
-> it came from, and it lists what is **not** implemented and why. This
-> README summarizes; that document is the source of truth.
+> **Read this first:** [`docs/kra-contract-verification.md`](https://github.com/ToshGitonga0/kra-etims/blob/main/docs/kra-contract-verification.md). It lists, for
+every endpoint this SDK implements, exactly which KRA document and section
+it came from, and it lists what is **not** implemented and why. This
+README summarizes; that document is the source of truth.
 
 ## What this SDK is
 
@@ -19,7 +19,7 @@ officially supported by KRA.
   stock.
 - A client that can also talk to a **VSCU** instance you already run
   (same JSON contract, taxpayer-hosted), once KRA has approved your VSCU
-  service request and you have the runtime running — see [`docs/vscu.md`](docs/vscu.md).
+  service request and you have the runtime running — see [`docs/vscu.md`](https://github.com/ToshGitonga0/kra-etims/blob/main/docs/vscu.md).
 - Strict about fiscal safety: write operations are never silently retried,
   and the two highest-risk writes (`items.save`, `sales.save`) are
   validated locally with Zod before anything is sent over the network.
@@ -28,11 +28,11 @@ officially supported by KRA.
 
 - **Not** an implementation of the VSCU Java runtime itself. KRA
   distributes that as a separate downloadable package after service
-  approval; this SDK talks *to* it, it does not replace it. See [`docs/vscu.md`](docs/vscu.md).
+  approval; this SDK talks *to* it, it does not replace it. See [`docs/vscu.md`](https://github.com/ToshGitonga0/kra-etims/blob/main/docs/vscu.md).
 - **Not** an implementation of the local TIS↔SCU device IPC/XML protocol
   described in KRA's "Technical Specification of TIS for OSCU/VSCU"
   document — that's a different protocol for device firmware, not for
-  typical backend integration. See [`docs/kra-contract-verification.md`](docs/kra-contract-verification.md).
+  typical backend integration. See [`docs/kra-contract-verification.md`](https://github.com/ToshGitonga0/kra-etims/blob/main/docs/kra-contract-verification.md).
 - **Not** certified, vetted, or endorsed by KRA. Passing your own
   integration through KRA's testing/certification process remains your
   responsibility.
@@ -40,12 +40,12 @@ officially supported by KRA.
   scaffold (no sandbox credentials were available). Every type and
   endpoint is sourced from KRA's own specification PDFs and unit-tested
   against fixtures derived from the spec's own JSON samples — see the
-  status legend in [`docs/kra-contract-verification.md`](docs/kra-contract-verification.md) for exactly what
+  status legend in [`docs/kra-contract-verification.md`](https://github.com/ToshGitonga0/kra-etims/blob/main/docs/kra-contract-verification.md) for exactly what
   "verified" means here versus what still needs sandbox testing by you.
 
 ## Supported integration modes and environments
 
-These are two independent settings — see [`docs/architecture.md`](docs/architecture.md):
+These are two independent settings — see [`docs/architecture.md`](https://github.com/ToshGitonga0/kra-etims/blob/main/docs/architecture.md):
 
 | | OSCU | VSCU |
 |---|---|---|
@@ -62,8 +62,8 @@ npm i kra-etims-oscu-sdk
 > **Package name note:** the scope `@kra-etims/sdk` requested in some
 > project templates is **not automatically publishable** — npm scopes
 > (`@kra-etims`) must be claimed as an npm organization/user before you can
-> publish under them, and nothing in this scaffold claims that
-> organization for you. This package is set up under the unscoped name
+> publish under them, and nothing in this scaffold claims that organization
+> for you. This package is set up under the unscoped name
 > `kra-etims-oscu-sdk` instead, which is publishable as-is (subject to the name
 > being available at publish time — check with `npm view kra-etims-oscu-sdk`
 > before your first publish). If you control the `@kra-etims` npm
@@ -92,8 +92,8 @@ const { info } = await client.oscu!.init.initialize({
 console.log("Store this securely, do not log it again:", info.cmcKey);
 ```
 
-See [`docs/sandbox.md`](docs/sandbox.md) for the full onboarding walkthrough and
-[`examples/`](examples/) for runnable code.
+See [`docs/sandbox.md`](https://github.com/ToshGitonga0/kra-etims/blob/main/docs/sandbox.md) for the full onboarding walkthrough and
+[`examples/`](https://github.com/ToshGitonga0/kra-etims/tree/main/examples) for runnable code.
 
 ## Configuration
 
@@ -180,7 +180,7 @@ await client.oscu!.stock.searchMoves({ tin, bhfId, cmcKey, lastReqDt: "202001010
 ```
 
 Full field-level types for every request/response are exported from the
-package root — see [`src/index.ts`](src/index.ts) or your editor's autocomplete.
+package root — see [`src/index.ts`](https://github.com/ToshGitonga0/kra-etims/blob/main/src/index.ts) or your editor's autocomplete.
 
 ## Errors
 
@@ -207,7 +207,7 @@ try {
 
 Fiscal writes (`sales.save`, `purchases.save`, `stock.saveIo`) are **never**
 automatically retried by this SDK, even on a network timeout — see
-[`docs/architecture.md#retry-policy-and-fiscal-safety`](docs/architecture.md#retry-policy-and-fiscal-safety). A dropped connection does not tell you whether KRA
+[`docs/architecture.md#retry-policy-and-fiscal-safety`](https://github.com/ToshGitonga0/kra-etims/blob/main/docs/architecture.md#retry-policy-and-fiscal-safety). A dropped connection does not tell you whether KRA
 processed the request. Before resubmitting a write after a network error,
 use the corresponding search endpoint
 (`purchases.searchPurchaseSales`, `stock.searchMoves`) to check whether the
@@ -223,31 +223,31 @@ npm run test:integration    # opt-in, requires real sandbox credentials in .env
 
 ## Sandbox
 
-See [`docs/sandbox.md`](docs/sandbox.md) for the full KRA onboarding walkthrough (service
+See [`docs/sandbox.md`](https://github.com/ToshGitonga0/kra-etims/blob/main/docs/sandbox.md) for the full KRA onboarding walkthrough (service
 request, device activation, communication key).
 
 ## Security
 
-See [`SECURITY.md`](SECURITY.md).
+See [`SECURITY.md`](https://github.com/ToshGitonga0/kra-etims/blob/main/SECURITY.md).
 
 ## Architecture
 
-See [`docs/architecture.md`](docs/architecture.md).
+See [`docs/architecture.md`](https://github.com/ToshGitonga0/kra-etims/blob/main/docs/architecture.md).
 
 ## Contributing
 
-See [`CONTRIBUTING.md`](CONTRIBUTING.md). The short version: every KRA-facing detail must cite
-an official KRA document in [`docs/kra-contract-verification.md`](docs/kra-contract-verification.md).
+See [`CONTRIBUTING.md`](https://github.com/ToshGitonga0/kra-etims/blob/main/CONTRIBUTING.md). The short version: every KRA-facing detail must cite
+an official KRA document in [`docs/kra-contract-verification.md`](https://github.com/ToshGitonga0/kra-etims/blob/main/docs/kra-contract-verification.md).
 
 ## Versioning
 
 This package follows semver relative to its own public TypeScript API.
-[`docs/kra-contract-verification.md`](docs/kra-contract-verification.md) separately tracks which version of
+[`docs/kra-contract-verification.md`](https://github.com/ToshGitonga0/kra-etims/blob/main/docs/kra-contract-verification.md) separately tracks which version of
 KRA's own specification (`OSCU_Specification_Document_v2.0.pdf`, v2.0) this
 SDK was built against — a future KRA contract revision may require a new
 SDK major version if field shapes change.
 
 ## License
 
-MIT — see [`LICENSE`](LICENSE). This project is independent and not affiliated with
-KRA; see the notice at the bottom of [`LICENSE`](LICENSE).
+MIT — see [`LICENSE`](https://github.com/ToshGitonga0/kra-etims/blob/main/LICENSE). This project is independent and not affiliated with
+KRA; see the notice at the bottom of [`LICENSE`](https://github.com/ToshGitonga0/kra-etims/blob/main/LICENSE).
