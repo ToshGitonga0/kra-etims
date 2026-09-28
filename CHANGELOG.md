@@ -3,6 +3,13 @@
 All notable changes to this project are documented in this file.
 The format loosely follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
+## [0.1.5] - 2026-09-28
+
+### Changed
+- Package metadata only; no code or API changes.
+- Set the package author, and added `homepage` and `bugs` links.
+- Added search keywords (`kenya-revenue-authority`, `e-invoicing`, `typescript`).
+
 ## [0.1.4] - 2026-09-18
 
 ### Changed
