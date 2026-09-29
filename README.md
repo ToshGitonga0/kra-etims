@@ -59,17 +59,6 @@ These are two independent settings — see [`docs/architecture.md`](https://gith
 npm i kra-etims-oscu-sdk
 ```
 
-> **Package name note:** the scope `@kra-etims/sdk` requested in some
-> project templates is **not automatically publishable** — npm scopes
-> (`@kra-etims`) must be claimed as an npm organization/user before you can
-> publish under them, and nothing in this repo claims that organization
-> for you. This package is set up under the unscoped name
-> `kra-etims-oscu-sdk` instead, which is publishable as-is (subject to the name
-> being available at publish time — check with `npm view kra-etims-oscu-sdk`
-> before your first publish). If you control the `@kra-etims` npm
-> organization, renaming back to a scoped package is a one-line change in
-> `package.json`.
-
 ## Quick start
 
 ```ts
@@ -207,8 +196,8 @@ try {
 
 Fiscal writes (`sales.save`, `purchases.save`, `stock.saveIo`) are **never**
 automatically retried by this SDK, even on a network timeout — see
-[`docs/architecture.md#retry-policy-and-fiscal-safety`](https://github.com/ToshGitonga0/kra-etims/blob/main/docs/architecture.md#retry-policy-and-fiscal-safety). A dropped connection does not tell you whether KRA
-processed the request. Before resubmitting a write after a network error,
+[`docs/architecture.md#retry-policy-and-fiscal-safety`](https://github.com/ToshGitonga0/kra-etims/blob/main/docs/architecture.md#retry-policy-and-fiscal-safety). A dropped connection does not tell
+whether the KRA backend processed the request. Before resubmitting a write after a network error,
 use the corresponding search endpoint
 (`purchases.searchPurchaseSales`, `stock.searchMoves`) to check whether the
 original submission already landed, and give it a new `invcNo`/`sarNo` only
